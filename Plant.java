@@ -1,8 +1,10 @@
-public class Plant {
-    private String name;
-    private double height;
+abstract class Plant implements PlantCare {
+    //inkapsling med private, nås bara med getters
+    //Plant implementerar PlantCare interface
+    private final String name;
+    private final double height;
 
-    public Plant(String name, double height){
+    public Plant(String name, double height) {
         this.name = name;
         this.height = height;
     }
@@ -15,8 +17,11 @@ public class Plant {
         return height;
     }
 
-    @Override
-    public String toString(){
-        return name + " " + height;
+    public String getPlantCareInformation() {
+        return "Växten " + getName()
+                + " ska ha " + calculateLiquidAmount() //via PlantCare interface
+                + " liter vätska av typen "
+                + getLiquid() //via PlantCare interface
+                + " per dag.";
     }
 }

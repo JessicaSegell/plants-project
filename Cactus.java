@@ -1,14 +1,17 @@
-public class Cactus extends Plant{
+public class Cactus extends Plant {
+    //Cactus ärver från Plant
 
-    public Cactus(String name, double height){
+    public Cactus(String name, double height) {
         super(name, height);
     }
 
-    public double calculateLiquidAmount(){
+    @Override
+    public double calculateLiquidAmount() {
         return 0.02;
     }
 
-    public LiquidType getLiquidType(){
-        return LiquidType.MINERAL_WATER;
+    @Override
+    public String getLiquid() {
+        return LiquidType.MINERAL_WATER.getLiquid();
     }
 }
